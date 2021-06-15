@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\hejar\OneDrive\Bureau\ESGI\Deep Reinforcement Learning (S2)\PROJET_GIT_PROF\esgi_2021_4a_IABD_drl_sample_project\drl_sample_project_python\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
