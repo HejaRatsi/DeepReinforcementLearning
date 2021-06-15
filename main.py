@@ -16,6 +16,8 @@ if __name__ == "__main__":
     temporal_difference_learning.demo()
     """
 
-    print(States_LineW)
+    print(P_LineW.shape)
+    print(P_GridW.shape)
 
-    print(States_GridW)
+    for i in range(9,20,5):
+        print(i)
