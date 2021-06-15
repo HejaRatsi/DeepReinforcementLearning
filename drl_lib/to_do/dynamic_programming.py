@@ -1,6 +1,7 @@
 from ..do_not_touch.mdp_env_wrapper import Env1
 from ..do_not_touch.result_structures import ValueFunction, PolicyAndValueFunction
 from ..to_do.world.line_world import *
+from ..to_do.world.grid_world import *
 import random
 
 
@@ -131,6 +132,39 @@ def policy_evaluation_on_grid_world() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
     # TODO
+    #La stratégie/policy
+    pi = np.zeros((MAX_CELLS_GridW, len(Actions_GridW)))
+    for s in range(MAX_CELLS_GridW):
+        pi[s, random.randint(0, len(Actions_GridW) - 1)] = 1.0
+
+    # La value function
+    V = np.zeros((MAX_CELLS_GridW,))
+
+    theta = 0.0001
+    gamma = 0.9999
+
+    while True:
+        delta = 0
+        for s in range(MAX_CELLS_GridW):
+            v = V[s]
+            V[s] = 0
+            # boucle sur les actions
+            for a in Actions_GridW:
+                # boucle sur les états suivants possible
+                for s_p in range(MAX_CELLS_GridW):
+                    # boucle sur les rewards
+                    for r_idx, r in enumerate(Rewards_GridW):
+                        V[s] += pi[s, a] * P_GridW[s, a, s_p, r_idx] * (r + gamma * V[s_p])
+
+            delta = max(delta, abs(v - V[s]))
+
+        if delta < theta:
+            break
+
+    #print(V)
+
+    return V
+
     pass
 
 

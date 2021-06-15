@@ -7,17 +7,13 @@ import drl_lib.to_do.temporal_difference_learning as temporal_difference_learnin
 
 from drl_lib.to_do.world.line_world import *
 from drl_lib.to_do.world.grid_world import *
+import random
 
 if __name__ == "__main__":
 
-    """
     dynamic_programming.demo()
     monte_carlo_methods.demo()
     temporal_difference_learning.demo()
-    """
+    
 
-    print(P_LineW.shape)
-    print(P_GridW.shape)
 
-    for i in range(9,20,5):
-        print(i)
