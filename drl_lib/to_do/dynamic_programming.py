@@ -1,12 +1,15 @@
 from ..do_not_touch.mdp_env_wrapper import Env1
 from ..do_not_touch.result_structures import ValueFunction, PolicyAndValueFunction
-from ..to_do.world.line_world import *
-from ..to_do.world.grid_world import *
+from ..to_do.world_dynamic_prog.line_world import *
+from ..to_do.world_dynamic_prog.grid_world import *
 from ..to_do.algo_dynamic_prog.policy_evaluation import *
 from ..to_do.algo_dynamic_prog.policy_iteration import *
 from ..to_do.algo_dynamic_prog.value_iteration import *
 import random
 
+
+envLineWorld = LineWorld_DynamicProg(7)
+envGridWorld = GridWorld_DynamicProg(5)
 
 
 def policy_evaluation_on_line_world() -> ValueFunction:
@@ -16,8 +19,7 @@ def policy_evaluation_on_line_world() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
     # TODO
-    return policy_evalution(len(States_LineW), States_LineW, Actions_LineW, Rewards_LineW, P_LineW)
-
+    return policy_evalution(len(envLineWorld.P_LineW), envLineWorld.States_LineW, envLineWorld.Actions_LineW, envLineWorld.Rewards_LineW, envLineWorld.P_LineW)
     pass
 
 
@@ -30,7 +32,8 @@ def policy_iteration_on_line_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-    return policy_iteration(len(States_LineW), States_LineW,Actions_LineW,Rewards_LineW,P_LineW)
+    return policy_iteration(len(envLineWorld.P_LineW), envLineWorld.States_LineW, envLineWorld.Actions_LineW,
+                            envLineWorld.Rewards_LineW, envLineWorld.P_LineW)
 
     pass
 
@@ -44,7 +47,9 @@ def value_iteration_on_line_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-    return value_iteration(len(States_LineW), States_LineW, Actions_LineW, Rewards_LineW, P_LineW)
+    return value_iteration(len(envLineWorld.P_LineW), envLineWorld.States_LineW, envLineWorld.Actions_LineW,
+                            envLineWorld.Rewards_LineW, envLineWorld.P_LineW)
+
     pass
 
 
@@ -57,8 +62,7 @@ def policy_evaluation_on_grid_world() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
     # TODO
-    return policy_evalution(MAX_CELLS_GridW, range(MAX_CELLS_GridW), Actions_GridW, Rewards_GridW, P_GridW)
-
+    return policy_evalution(envGridWorld.cell_total, range(envGridWorld.cell_total),envGridWorld.Actions_GridW, envGridWorld.Rewards_GridW, envGridWorld.P_GridW)
     pass
 
 
@@ -70,7 +74,8 @@ def policy_iteration_on_grid_world() -> PolicyAndValueFunction:
     """
     # TODO
 
-    return policy_iteration(MAX_CELLS_GridW, range(MAX_CELLS_GridW),Actions_GridW,Rewards_GridW,P_GridW)
+    return policy_iteration(envGridWorld.cell_total, range(envGridWorld.cell_total), envGridWorld.Actions_GridW,
+                            envGridWorld.Rewards_GridW, envGridWorld.P_GridW)
 
     pass
 
@@ -82,7 +87,8 @@ def value_iteration_on_grid_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-    return value_iteration(MAX_CELLS_GridW, range(MAX_CELLS_GridW), Actions_GridW, Rewards_GridW, P_GridW)
+    return value_iteration(envGridWorld.cell_total, range(envGridWorld.cell_total), envGridWorld.Actions_GridW,
+                            envGridWorld.Rewards_GridW, envGridWorld.P_GridW)
 
     pass
 
@@ -249,7 +255,6 @@ def value_iteration_on_secret_env1() -> PolicyAndValueFunction:
 
     pi = np.zeros((len(States_Secret1), len(Actions_Secret1)))
 
-
     for s in States_Secret1:
         best_a = -1
         best_a_score = None
@@ -267,7 +272,8 @@ def value_iteration_on_secret_env1() -> PolicyAndValueFunction:
 
     return pi, V
 
-    pass
+
+pass
 
 
 def demo():

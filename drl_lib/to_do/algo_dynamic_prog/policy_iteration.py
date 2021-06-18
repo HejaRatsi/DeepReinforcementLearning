@@ -3,11 +3,11 @@ import random
 
 
 def policy_iteration(lenS, S, A, R, P):
-    # for line world
+    # for line world_dynamic_prog
     # lenS   => len(States_LineW)
     # S      => States_LineW
 
-    # for grid world
+    # for grid world_dynamic_prog
     # lenS   => MAX_CELLS_GridW
     # S      => range(MAX_CELLS_GridW)
 
