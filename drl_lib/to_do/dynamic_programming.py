@@ -19,7 +19,7 @@ def policy_evaluation_on_line_world() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
     # TODO
-    return policy_evalution(len(envLineWorld.P_LineW), envLineWorld.States_LineW, envLineWorld.Actions_LineW, envLineWorld.Rewards_LineW, envLineWorld.P_LineW)
+    return policy_evalution(envLineWorld)
     pass
 
 
@@ -32,9 +32,7 @@ def policy_iteration_on_line_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-    return policy_iteration(len(envLineWorld.P_LineW), envLineWorld.States_LineW, envLineWorld.Actions_LineW,
-                            envLineWorld.Rewards_LineW, envLineWorld.P_LineW)
-
+    return policy_iteration(envLineWorld)
     pass
 
 
@@ -47,8 +45,7 @@ def value_iteration_on_line_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-    return value_iteration(len(envLineWorld.P_LineW), envLineWorld.States_LineW, envLineWorld.Actions_LineW,
-                            envLineWorld.Rewards_LineW, envLineWorld.P_LineW)
+    return value_iteration(envLineWorld)
 
     pass
 
@@ -62,7 +59,8 @@ def policy_evaluation_on_grid_world() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
     # TODO
-    return policy_evalution(envGridWorld.cell_total, range(envGridWorld.cell_total),envGridWorld.Actions_GridW, envGridWorld.Rewards_GridW, envGridWorld.P_GridW)
+    return policy_evalution(envGridWorld)
+
     pass
 
 
@@ -73,10 +71,7 @@ def policy_iteration_on_grid_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-
-    return policy_iteration(envGridWorld.cell_total, range(envGridWorld.cell_total), envGridWorld.Actions_GridW,
-                            envGridWorld.Rewards_GridW, envGridWorld.P_GridW)
-
+    return policy_iteration(envGridWorld)
     pass
 
 
@@ -87,9 +82,7 @@ def value_iteration_on_grid_world() -> PolicyAndValueFunction:
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
     # TODO
-    return value_iteration(envGridWorld.cell_total, range(envGridWorld.cell_total), envGridWorld.Actions_GridW,
-                            envGridWorld.Rewards_GridW, envGridWorld.P_GridW)
-
+    return value_iteration(envGridWorld)
     pass
 
 
@@ -307,3 +300,5 @@ def demo():
     print("value_iteration_on_secret_env1")
     print(value_iteration_on_secret_env1())
     print("\n")
+
+

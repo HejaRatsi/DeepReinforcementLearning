@@ -21,6 +21,13 @@ class GridWorld_DynamicProg:
         self.make_rules()
 
 
+        self.lenS = self.cell_total
+        self.S = range(self.cell_total)
+        self.A = self.Actions_GridW
+        self.R = self.Rewards_GridW
+        self.P = self.P_GridW
+
+
     def define_states(self):
         temp = np.arange(self.cell_one_line * self.cell_one_line)
         S = np.reshape(temp, (self.cell_one_line, self.cell_one_line))

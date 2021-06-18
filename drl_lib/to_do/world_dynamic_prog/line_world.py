@@ -21,6 +21,12 @@ class LineWorld_DynamicProg:
         self.P_LineW = np.zeros((len(self.States_LineW), len(self.Actions_LineW), len(self.States_LineW), len(self.Rewards_LineW)))
         self.make_rules()
 
+        self.lenS = len(self.P_LineW)
+        self.S = self.States_LineW
+        self.A = self.Actions_LineW
+        self.R = self.Rewards_LineW
+        self.P = self.P_LineW
+
 
     def make_rules(self):
         for i in range(1, self.ncell - 2):
