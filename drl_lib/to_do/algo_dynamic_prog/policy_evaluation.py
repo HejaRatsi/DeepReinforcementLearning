@@ -35,7 +35,9 @@ def policy_evalution(env):#lenS, S, A, R, P):
                 for s_p in env.S:
                     # boucle sur les rewards
                     for r_idx, r in enumerate(env.R):
-                        V[s] += pi[s, a] * env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
+                        tempVar = env.transition_probability(s, a, s_p, r_idx)
+                        V[s] += pi[s, a] * tempVar * (r + gamma * V[s_p])
+                        #V[s] += pi[s, a] * env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
 
             delta = max(delta, abs(v - V[s]))
 

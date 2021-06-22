@@ -26,6 +26,7 @@ class GridWorld_DynamicProg:
         self.A = self.Actions_GridW
         self.R = self.Rewards_GridW
         self.P = self.P_GridW
+        self.zozo = 0
 
 
     def define_states(self):
@@ -73,6 +74,12 @@ class GridWorld_DynamicProg:
         # Je gagne
         self.P_GridW[(self.cell_one_line * (self.cell_one_line - 1)) - 1, 3, self.cell_total - 1, 2] = 1.0
         self.P_GridW[self.cell_total - 2, 1, self.cell_total - 1, 2] = 1.0
+
+
+
+    def transition_probability(self,s, a, s_p, r_idx):
+        return self.P_GridW[s, a, s_p, r_idx];
+
 
 
 

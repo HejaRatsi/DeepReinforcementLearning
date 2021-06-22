@@ -33,6 +33,7 @@ def policy_iteration_on_line_world() -> PolicyAndValueFunction:
     """
     # TODO
     return policy_iteration(envLineWorld)
+
     pass
 
 
@@ -93,6 +94,7 @@ def policy_evaluation_on_secret_env1() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
 
+    #LE CODE N'EST PAS FACTORISE PARCE QUE NOTRE P EST UN TABLEAU TANDIS QUE LE P DU ENV SECRET EST un FLOAAAATTT env.transition_probability(s, a, s_p, r_idx)
     # TODO
     env = Env1()
     States_Secret1 = env.states()
@@ -148,6 +150,7 @@ def policy_iteration_on_secret_env1() -> PolicyAndValueFunction:
     Actions_Secret1 = env.actions()
     Rewards_Secret1 = env.rewards()
 
+
     # TODO
     # La stratégie/policy
     pi = np.zeros((len(States_Secret1), len(Actions_Secret1)))
@@ -189,6 +192,7 @@ def policy_iteration_on_secret_env1() -> PolicyAndValueFunction:
                 a_score = 0.0
                 for s_p in States_Secret1:
                     for r_idx, r in enumerate(Rewards_Secret1):
+
                         a_score += env.transition_probability(s, a, s_p, r_idx) * (r + gamma * V[s_p])
                 if best_a_score is None or best_a_score < a_score:
                     best_a = a

@@ -12,7 +12,6 @@ def policy_iteration(env):#lenS, S, A, R, P):
     # S      => range(MAX_CELLS_GridW)
 
 
-
     # La stratégie/policy
     pi = np.zeros((env.lenS, len(env.A)))
     for s in env.S:
@@ -35,7 +34,9 @@ def policy_iteration(env):#lenS, S, A, R, P):
                 for a in env.A:
                     for s_p in env.S:
                         for r_idx, r in enumerate(env.R):
-                            V[s] += pi[s, a] * env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
+                            tempVar = env.transition_probability(s, a, s_p, r_idx)
+                            V[s] += pi[s, a] * tempVar * (r + gamma * V[s_p])
+                            #V[s] += pi[s, a] * env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
                 delta = max(delta, abs(v - V[s]))
 
             if delta < theta:
@@ -53,7 +54,9 @@ def policy_iteration(env):#lenS, S, A, R, P):
                 a_score = 0.0
                 for s_p in env.S:
                     for r_idx, r in enumerate(env.R):
-                        a_score += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
+                        tempVar2 = env.transition_probability(s, a, s_p, r_idx)
+                        a_score += tempVar2 * (r + gamma * V[s_p])
+                        #a_score += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
                 if best_a_score is None or best_a_score < a_score:
                     best_a = a
                     best_a_score = a_score

@@ -25,7 +25,9 @@ def value_iteration(env):#lenS, S, A, R, P):
                 cumul_A = 0
                 for s_p in env.S:
                     for r_idx, r in enumerate(env.R):
-                        cumul_A += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
+                        tempVar = env.transition_probability(s, a, s_p, r_idx)
+                        cumul_A += tempVar * (r + gamma * V[s_p])
+                        #cumul_A += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
 
                 if cumul_A > max_cumul_A:
                     max_cumul_A = cumul_A
@@ -50,7 +52,9 @@ def value_iteration(env):#lenS, S, A, R, P):
             a_score = 0.0
             for s_p in env.S:
                 for r_idx, r in enumerate(env.R):
-                    a_score += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
+                    tempVar2 = env.transition_probability(s, a, s_p, r_idx)
+                    a_score += tempVar2 * (r + gamma * V[s_p])
+                    #a_score += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
             if best_a_score is None or best_a_score < a_score:
                 best_a = a
                 best_a_score = a_score

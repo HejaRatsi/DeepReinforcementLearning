@@ -28,9 +28,11 @@ class LineWorld_DynamicProg:
         self.P = self.P_LineW
 
 
+
     def make_rules(self):
         for i in range(1, self.ncell - 2):
             self.P_LineW[i, 1, i + 1, 1] = 1.0
+
 
         for i in range(2, self.ncell - 1):
             self.P_LineW[i, 0, i - 1, 1] = 1.0
@@ -41,8 +43,13 @@ class LineWorld_DynamicProg:
         self.P_LineW[1, 0, 0, 0] = 1.0
 
 
+    def transition_probability(self,s, a, s_p, r_idx):
+        return self.P_LineW[s, a, s_p, r_idx];
 
-
+    def states(self):
+        return self.S;
+    #actions()
+    #rewards()
 
 
 
