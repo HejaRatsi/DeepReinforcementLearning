@@ -96,6 +96,7 @@ def policy_evaluation_on_secret_env1() -> ValueFunction:
 
     #LE CODE N'EST PAS FACTORISE PARCE QUE NOTRE P EST UN TABLEAU TANDIS QUE LE P DU ENV SECRET EST un FLOAAAATTT env.transition_probability(s, a, s_p, r_idx)
     # TODO
+
     env = Env1()
     States_Secret1 = env.states()
     Actions_Secret1 = env.actions()
@@ -271,6 +272,7 @@ def value_iteration_on_secret_env1() -> PolicyAndValueFunction:
 
 
 pass
+
 
 
 def demo():
