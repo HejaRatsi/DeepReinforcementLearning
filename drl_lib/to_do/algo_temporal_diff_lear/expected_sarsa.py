@@ -110,13 +110,9 @@ def expected_sarsa(
                         b[s_TplusUn][a] = 1.0 / len(next_available_actions)
 
                 # Q(S,A) <- Q(S,A) + ...
-
+                #CHANGMENT PAR RAPPORT AU Q-LEARNING
                 list_of_ActionValues = list(q[s_TplusUn].values())
                 list_of_policy = list(pi[s_TplusUn].values())
-                """
-                print("LA LIST ")
-                print(list_of_ActionValues)
-                """
                 sum = 0
                 for i in range(len(list_of_policy)):
                     sum += list_of_ActionValues[i] * list_of_policy[i]

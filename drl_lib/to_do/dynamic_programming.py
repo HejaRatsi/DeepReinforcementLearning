@@ -102,7 +102,6 @@ def policy_evaluation_on_secret_env1() -> ValueFunction:
     Actions_Secret1 = env.actions()
     Rewards_Secret1 = env.rewards()
     #P_Secret1 = env.transition_probability()
-
     # La stratégie/policy
     pi = np.zeros((len(States_Secret1), len(Actions_Secret1)))
     for s in States_Secret1:
@@ -137,6 +136,7 @@ def policy_evaluation_on_secret_env1() -> ValueFunction:
     return V
 
     pass
+
 
 
 
