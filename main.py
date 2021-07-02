@@ -4,8 +4,6 @@ import drl_lib.to_do.dynamic_programming as dynamic_programming
 import drl_lib.to_do.monte_carlo_methods as monte_carlo_methods
 import drl_lib.to_do.temporal_difference_learning as temporal_difference_learning
 
-from drl_lib.to_do.world_dynamic_prog.line_world import *
-from drl_lib.to_do.world_dynamic_prog.grid_world import *
 
 if __name__ == "__main__":
 
