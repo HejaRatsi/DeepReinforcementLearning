@@ -1,8 +1,10 @@
 import numpy as np
 import random
 
+from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
 
-def policy_iteration(env):#lenS, S, A, R, P):
+
+def policy_iteration(env: ContratMDP):#lenS, S, A, R, P):
     # for line world_dynamic_prog
     # lenS   => len(States_LineW)
     # S      => States_LineW
@@ -13,9 +15,9 @@ def policy_iteration(env):#lenS, S, A, R, P):
 
 
     # La stratégie/policy
-    pi = np.zeros((env.lenS, len(env.A)))
+    pi = np.zeros((env.lenS, len(env.get_actions())))
     for s in env.S:
-        pi[s, random.randint(0, len(env.A) - 1)] = 1.0
+        pi[s, random.randint(0, len(env.get_actions()) - 1)] = 1.0
 
     # La value function
     V = np.zeros((env.lenS,))
@@ -31,10 +33,11 @@ def policy_iteration(env):#lenS, S, A, R, P):
             for s in env.S:
                 v = V[s]
                 V[s] = 0
-                for a in env.A:
+                for a in env.get_actions():
                     for s_p in env.S:
-                        for r_idx, r in enumerate(env.R):
-                            tempVar = env.transition_probability(s, a, s_p, r_idx)
+                        for r_idx, r in enumerate(env.get_reward()):
+                            tempVar = env.get_oneValueOf_p(s, a, s_p, r_idx)
+                            #tempVar = env.transition_probability(s, a, s_p, r_idx)
                             V[s] += pi[s, a] * tempVar * (r + gamma * V[s_p])
                             #V[s] += pi[s, a] * env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
                 delta = max(delta, abs(v - V[s]))
@@ -50,11 +53,12 @@ def policy_iteration(env):#lenS, S, A, R, P):
             best_a = -1
             best_a_score = None
 
-            for a in env.A:
+            for a in env.get_actions():
                 a_score = 0.0
                 for s_p in env.S:
-                    for r_idx, r in enumerate(env.R):
-                        tempVar2 = env.transition_probability(s, a, s_p, r_idx)
+                    for r_idx, r in enumerate(env.get_reward()):
+                        tempVar2 = env.get_oneValueOf_p(s, a, s_p, r_idx)
+                        #tempVar2 = env.transition_probability(s, a, s_p, r_idx)
                         a_score += tempVar2 * (r + gamma * V[s_p])
                         #a_score += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
                 if best_a_score is None or best_a_score < a_score:

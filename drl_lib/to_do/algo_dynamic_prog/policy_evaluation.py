@@ -1,9 +1,11 @@
 import numpy as np
 import random
 
+from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
 
 
-def policy_evalution(env): #env: ContratMDP
+def policy_evalution(env: ContratMDP):
+
     #lenS, S, A, R, P):
     #for line world_dynamic_prog
     #lenS   => len(States_LineW)
@@ -13,9 +15,9 @@ def policy_evalution(env): #env: ContratMDP
     # lenS   => MAX_CELLS_GridW
     # S      => range(MAX_CELLS_GridW)
     # La stratégie/policy
-    pi = np.zeros((env.lenS, len(env.A)))
+    pi = np.zeros((env.lenS, len(env.get_actions())))
     for s in env.S:
-        pi[s, random.randint(0, len(env.A) - 1)] = 1.0
+        pi[s, random.randint(0, len(env.get_actions()) - 1)] = 1.0
 
     # La value function
     V = np.zeros((env.lenS,))
@@ -29,12 +31,13 @@ def policy_evalution(env): #env: ContratMDP
             v = V[s]
             V[s] = 0
             # boucle sur les actions
-            for a in env.A:
+            for a in env.get_actions():
                 # boucle sur les états suivants possible
                 for s_p in env.S:
                     # boucle sur les rewards
-                    for r_idx, r in enumerate(env.R):
-                        tempVar = env.transition_probability(s, a, s_p, r_idx)
+                    for r_idx, r in enumerate(env.get_reward()):
+                        tempVar = env.get_oneValueOf_p(s, a, s_p, r_idx)
+                        #tempVar = env.transition_probability(s, a, s_p, r_idx)
                         V[s] += pi[s, a] * tempVar * (r + gamma * V[s_p])
                         #V[s] += pi[s, a] * env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
 
