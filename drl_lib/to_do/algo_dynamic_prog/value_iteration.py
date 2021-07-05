@@ -23,11 +23,11 @@ def value_iteration(env: ContratMDP):#lenS, S, A, R, P):
             v = V[s]
             V[s] = 0
             max_cumul_A = 0
-            for a in env.get_actions():
+            for a in env.actions():
                 cumul_A = 0
                 for s_p in env.S:
-                    for r_idx, r in enumerate(env.get_reward()):
-                        tempVar = env.get_oneValueOf_p(s, a, s_p, r_idx)
+                    for r_idx, r in enumerate(env.rewards()):
+                        tempVar = env.transition_probability(s, a, s_p, r_idx)
                         #tempVar = env.transition_probability(s, a, s_p, r_idx)
                         cumul_A += tempVar * (r + gamma * V[s_p])
                         #cumul_A += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])
@@ -45,17 +45,17 @@ def value_iteration(env: ContratMDP):#lenS, S, A, R, P):
     # ----------------------------------------OUTPUT A DETERMINITSI POLICY----------------------------------------
     # ----------------------------------------OUTPUT A DETERMINITSI POLICY----------------------------------------
 
-    pi = np.zeros((env.lenS, len(env.get_actions())))
+    pi = np.zeros((env.lenS, len(env.actions())))
 
     for s in env.S:
         best_a = -1
         best_a_score = None
 
-        for a in env.get_actions():
+        for a in env.actions():
             a_score = 0.0
             for s_p in env.S:
-                for r_idx, r in enumerate(env.get_reward()):
-                    tempVar2 = env.get_oneValueOf_p(s, a, s_p, r_idx)
+                for r_idx, r in enumerate(env.rewards()):
+                    tempVar2 = env.transition_probability(s, a, s_p, r_idx)
                     #tempVar2 = env.transition_probability(s, a, s_p, r_idx)
                     a_score += tempVar2 * (r + gamma * V[s_p])
                     #a_score += env.P[s, a, s_p, r_idx] * (r + gamma * V[s_p])

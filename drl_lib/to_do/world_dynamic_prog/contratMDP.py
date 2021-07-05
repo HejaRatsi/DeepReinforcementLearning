@@ -6,11 +6,21 @@ import numpy as np
 # -> Dans GridWorld le s est un range
 class ContratMDP:
 
-    def get_actions(self) -> np.ndarray:
+
+    def states(self) -> np.ndarray:
         pass
 
-    def get_reward(self) -> np.ndarray:
+    def actions(self) -> np.ndarray:
         pass
 
-    def get_oneValueOf_p(self, s: int, a: int, s_p: int, r_idx: int) -> int:
+    def rewards(self) -> np.ndarray:
+        pass
+
+    def is_state_terminal(self, s: int) -> bool:
+        pass
+
+    def transition_probability(self, s: int, a: int, s_p: int, r: float) -> float:
+        pass
+
+    def view_state(self, s: int):
         pass

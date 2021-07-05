@@ -44,14 +44,25 @@ class LineWorld_DynamicProg(ContratMDP):
 
 
 
-    def get_actions(self) -> np.ndarray:
+    def actions(self) -> np.ndarray:
         return self.A
 
-    def get_reward(self) -> np.ndarray:
+    def rewards(self) -> np.ndarray:
         return self.R
 
-    def get_oneValueOf_p(self,s: int, a: int, s_p: int, r_idx: int) -> int:
+    def transition_probability(self,s: int, a: int, s_p: int, r_idx: int) -> int:
         return self.P_LineW[s, a, s_p, r_idx];
+
+    # ADD DEFINE
+    def states(self) -> np.ndarray:
+        pass
+
+
+    def is_state_terminal(self, s: int) -> bool:
+        pass
+
+    def view_state(self, s: int):
+        pass
 
 
 
