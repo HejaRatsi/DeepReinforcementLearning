@@ -4,36 +4,20 @@ import random
 from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
 
 
-def policy_evalution(env: ContratMDP):
-
-    #lenS, S, A, R, P):
-    #for line world_dynamic_prog
-    #lenS   => len(States_LineW)
-    #S      => States_LineW
-
-    #for grid world_dynamic_prog
-    # lenS   => MAX_CELLS_GridW
-    # S      => range(MAX_CELLS_GridW)
-    # La stratégie/policy
-    pi = np.zeros((env.lenS, len(env.actions())))
-    for s in env.S:
-        pi[s, random.randint(0, len(env.actions()) - 1)] = 1.0
-
-    # La value function
-    V = np.zeros((env.lenS,))
+def policy_evalution(env: ContratMDP,pi,V):
 
     theta = 0.0001
     gamma = 0.9999
 
     while True:
         delta = 0
-        for s in env.S:
+        for s in env.states():
             v = V[s]
             V[s] = 0
             # boucle sur les actions
             for a in env.actions():
                 # boucle sur les états suivants possible
-                for s_p in env.S:
+                for s_p in env.states():
                     # boucle sur les rewards
                     for r_idx, r in enumerate(env.rewards()):
                         tempVar = env.transition_probability(s, a, s_p, r_idx)

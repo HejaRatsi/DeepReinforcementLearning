@@ -21,12 +21,8 @@ class LineWorld_DynamicProg(ContratMDP):
         self.P_LineW = np.zeros((len(self.States_LineW), len(self.Actions_LineW), len(self.States_LineW), len(self.Rewards_LineW)))
         self.make_rules()
 
-        self.lenS = len(self.P_LineW)
-        self.S = self.States_LineW
-        self.A = self.Actions_LineW
-        self.R = self.Rewards_LineW
-        self.P = self.P_LineW
 
+        #self.lenS = len(self.States_LineW)
 
 
     def make_rules(self):
@@ -45,19 +41,19 @@ class LineWorld_DynamicProg(ContratMDP):
 
 
     def actions(self) -> np.ndarray:
-        return self.A
+        return self.Actions_LineW
 
     def rewards(self) -> np.ndarray:
-        return self.R
+        return self.Rewards_LineW
 
     def transition_probability(self,s: int, a: int, s_p: int, r_idx: int) -> int:
         return self.P_LineW[s, a, s_p, r_idx];
 
-    # ADD DEFINE
     def states(self) -> np.ndarray:
-        pass
+        return self.States_LineW
 
 
+    # ADD DEFINE
     def is_state_terminal(self, s: int) -> bool:
         pass
 
