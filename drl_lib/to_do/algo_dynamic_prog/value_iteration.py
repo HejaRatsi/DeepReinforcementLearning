@@ -4,7 +4,10 @@ import random
 from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
 
 
-def value_iteration(env: ContratMDP,V):
+def value_iteration(env: ContratMDP):
+
+    # La value function
+    V = np.zeros((len(env.states()),))
 
     theta = 0.0001
     gamma = 0.9999

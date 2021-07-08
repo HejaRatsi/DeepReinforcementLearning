@@ -10,8 +10,7 @@ import random
 
 envLineWorld = LineWorld_DynamicProg(7)
 envGridWorld = GridWorld_DynamicProg(5)
-
-
+secretEnv = Env1()
 
 
 def policy_evaluation_on_line_world() -> ValueFunction:
@@ -24,14 +23,7 @@ def policy_evaluation_on_line_world() -> ValueFunction:
 
     # La stratégie/policy
 
-    pi = np.zeros((len(envLineWorld.states()), len(envLineWorld.actions())))
-    for s in envLineWorld.states():
-        pi[s, random.randint(0, len(envLineWorld.actions()) - 1)] = 1.0
-
-    # La value function
-    V = np.zeros((len(envLineWorld.states()),))
-
-    return policy_evalution(envLineWorld,pi,V)
+    return policy_evalution(envLineWorld)
     pass
 
 
@@ -45,15 +37,8 @@ def policy_iteration_on_line_world() -> PolicyAndValueFunction:
     """
     # TODO
 
-    # La stratégie/policy
-    pi = np.zeros((len(envLineWorld.states()), len(envLineWorld.actions())))
-    for s in envLineWorld.states():
-        pi[s, random.randint(0, len(envLineWorld.actions()) - 1)] = 1.0
 
-    # La value function
-    V = np.zeros((len(envLineWorld.states()),))
-
-    return policy_iteration(envLineWorld,pi,V)
+    return policy_iteration(envLineWorld)
 
     pass
 
@@ -68,10 +53,7 @@ def value_iteration_on_line_world() -> PolicyAndValueFunction:
     """
     # TODO
 
-
-    # La value function
-    V = np.zeros((len(envLineWorld.states()),))
-    return value_iteration(envLineWorld,V)
+    return value_iteration(envLineWorld)
 
     pass
 
@@ -86,15 +68,8 @@ def policy_evaluation_on_grid_world() -> ValueFunction:
     """
     # TODO
 
-    # La stratégie/policy
-    pi = np.zeros((len(envGridWorld.states()), len(envGridWorld.actions())))
-    for s in envGridWorld.states():
-        pi[s, random.randint(0, len(envGridWorld.actions()) - 1)] = 1.0
 
-    # La value function
-    V = np.zeros((len(envGridWorld.states()),))
-
-    return policy_evalution(envGridWorld,pi,V)
+    return policy_evalution(envGridWorld)
 
     pass
 
@@ -107,15 +82,7 @@ def policy_iteration_on_grid_world() -> PolicyAndValueFunction:
     """
     # TODO
 
-    # La stratégie/policy
-    pi = np.zeros((len(envGridWorld.states()), len(envGridWorld.actions())))
-    for s in envGridWorld.states():
-        pi[s, random.randint(0, len(envGridWorld.actions()) - 1)] = 1.0
-
-    # La value function
-    V = np.zeros((len(envGridWorld.states()),))
-
-    return policy_iteration(envGridWorld,pi,V)
+    return policy_iteration(envGridWorld)
     pass
 
 
@@ -127,9 +94,7 @@ def value_iteration_on_grid_world() -> PolicyAndValueFunction:
     """
     # TODO
 
-    # La value function
-    V = np.zeros((len(envGridWorld.states()),))
-    return value_iteration(envGridWorld,V)
+    return value_iteration(envGridWorld)
     pass
 
 
@@ -140,19 +105,11 @@ def policy_evaluation_on_secret_env1() -> ValueFunction:
     Returns the Value function (V(s)) of this policy
     """
 
-    #LE CODE N'EST PAS FACTORISE PARCE QUE NOTRE P EST UN TABLEAU TANDIS QUE LE P DU ENV SECRET EST un FLOAAAATTT env.transition_probability(s, a, s_p, r_idx)
     # TODO
 
-    env = Env1()
-    # La stratégie/policy
-    pi = np.zeros((len(env.states()), len(env.actions())))
-    for s in env.states():
-        pi[s, random.randint(0, len(env.actions()) - 1)] = 1.0
 
-    # La value function
-    V = np.zeros((len(env.states()),))
 
-    return policy_evalution(env, pi, V)
+    return policy_evalution(secretEnv)
 
     pass
 
@@ -163,16 +120,9 @@ def policy_iteration_on_secret_env1() -> PolicyAndValueFunction:
     Launches a Policy Iteration Algorithm in order to find the Optimal Policy and its Value Function
     Returns the Policy (Pi(s,a)) and its Value Function (V(s))
     """
-    env = Env1()
-    # La stratégie/policy
-    pi = np.zeros((len(env.states()), len(env.actions())))
-    for s in env.states():
-        pi[s, random.randint(0, len(env.actions()) - 1)] = 1.0
 
-    # La value function
-    V = np.zeros((len(env.states()),))
 
-    return policy_iteration(env, pi, V)
+    return policy_iteration(secretEnv)
 
     pass
 
@@ -184,12 +134,8 @@ def value_iteration_on_secret_env1() -> PolicyAndValueFunction:
     Prints the Policy (Pi(s,a)) and its Value Function (V(s))
     """
 
-    env = Env1()
 
-    # La value function
-    V = np.zeros((len(env.states()),))
-
-    return value_iteration(env,V)
+    return value_iteration(secretEnv)
 
 
 

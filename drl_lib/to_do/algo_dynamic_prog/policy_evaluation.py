@@ -4,7 +4,14 @@ import random
 from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
 
 
-def policy_evalution(env: ContratMDP,pi,V):
+def policy_evalution(env: ContratMDP):
+    # La stratégie/policy
+    pi = np.zeros((len(env.states()), len(env.actions())))
+    for s in env.states():
+        pi[s, random.randint(0, len(env.actions()) - 1)] = 1.0
+
+    # La value function
+    V = np.zeros((len(env.states()),))
 
     theta = 0.0001
     gamma = 0.9999
