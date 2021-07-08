@@ -7,7 +7,8 @@ class TicTacToe(SingleAgentEnv):
 
     def __init__(self, max_steps: int):
         self.cell_count = 9
-        self.agent_pos = 0
+        self.all_cell = 19683 # 3 puissance 9
+        self.agent_pos = 0 # à vérifier, c'est la position au début
         self.game_over = False
         self.current_score = 0.0
         self.max_steps = max_steps
@@ -17,26 +18,35 @@ class TicTacToe(SingleAgentEnv):
 
 
     # implémenter les fonctions ci-dessous
+
     def state_id(self) -> int:
-        pass
+        return self.agent_pos
 
     def is_game_over(self) -> bool:
-        pass
+        return self.game_over
 
+    #NARESH
+    #les actions sont les indices des cases de 0 à 8 inclus
+    #tu joue après tu fais joueur le robot
     def act_with_action_id(self, action_id: int):
         pass
 
     def score(self) -> float:
-        pass
+        return self.current_score
 
     def available_actions_ids(self) -> np.ndarray:
-        pass
+        if self.game_over:
+            return np.array([], dtype=np.int)
+        return np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])  # Poser sur une des cases
 
+    #NARESH
     def reset(self):
         pass
+
 
     def view(self):
         pass
 
+    #NARESH
     def reset_random(self):
         pass
