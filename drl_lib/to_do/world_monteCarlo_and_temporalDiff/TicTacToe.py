@@ -1,11 +1,22 @@
+import numpy as np
 from drl_lib.to_do.world_monteCarlo_and_temporalDiff.contratSingleAgentEnv import SingleAgentEnv
 
 
 class TicTacToe(SingleAgentEnv):
 
-    #CODE DU TIC TAC TOE ICI
-    #implémenter les fonctions ci-dessous
 
+    def __init__(self, max_steps: int):
+        self.cell_count = 9
+        self.agent_pos = 0
+        self.game_over = False
+        self.current_score = 0.0
+        self.max_steps = max_steps
+        self.current_step = 0
+        self.reset()
+
+
+
+    # implémenter les fonctions ci-dessous
     def state_id(self) -> int:
         pass
 
