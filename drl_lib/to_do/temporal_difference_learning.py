@@ -1,6 +1,8 @@
+from .world_monteCarlo_and_temporalDiff.TicTacToe import TicTacToe
 from ..do_not_touch.result_structures import PolicyAndActionValueFunction
 from ..do_not_touch.single_agent_env_wrapper import Env3
 
+#ticTacToe = TicTacToe()
 
 def sarsa_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     """

@@ -116,6 +116,7 @@ def q_learning(
                 #Q(S,A) <- Q(S,A) + ...
                 q[s][chosen_action] += alpha * (r + gamma * np.max(list(q[s_p].values())) - q[s][chosen_action])
 
+    print("STOP")
     #pour chaque state
     for s in q.keys():
         # Accéder à un élement de la list q[s].keys()
