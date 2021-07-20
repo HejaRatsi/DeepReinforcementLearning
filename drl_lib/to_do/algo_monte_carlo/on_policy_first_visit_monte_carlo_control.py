@@ -26,8 +26,8 @@ def on_policy_first_visit_monte_carlo_control(
         S = []
         A = []
         R = []
+        # Generate an episode following pi : S0, A0, R1,....,RT (in algo)
         while not env.is_game_over():
-            #Generate an episode following pi : S0, A0, R1,....,RT (in algo)
             s = env.state_id()
             S.append(s)
             available_actions = env.available_actions_ids()
@@ -39,7 +39,6 @@ def on_policy_first_visit_monte_carlo_control(
                     pi[s][a] = 1.0 / len(available_actions)
                     q[s][a] = 0.0
                     returns[s][a] = []
-
             chosen_action = np.random.choice(
                 list(pi[s].keys()),
                 1,
@@ -53,11 +52,11 @@ def on_policy_first_visit_monte_carlo_control(
             r = env.score() - old_score
             R.append(r)
 
-            #G <- 0 (in algo)
-            G = 0
+        #G <- 0 (in algo)
+        G = 0
 
-            #Loop for each step of episode... (in algo)
-            for t in reversed(range(len(S))):
+        #Loop for each step of episode... (in algo)
+        for t in reversed(range(len(S))):
                 G = gamma * G + R[t]
                 #Unless the pair St, At apperas... (in algo)
                 s_t = S[t]
