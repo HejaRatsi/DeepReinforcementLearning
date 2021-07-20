@@ -1,8 +1,12 @@
+from .algo_temporal_diff_lear.expected_sarsa import expected_sarsa
+from .algo_temporal_diff_lear.q_learning_offPolicy import q_learning
+from .algo_temporal_diff_lear.sarsa_onPolicy import sarsa_onPolicy
 from .world_monteCarlo_and_temporalDiff.TicTacToe import TicTacToe
 from ..do_not_touch.result_structures import PolicyAndActionValueFunction
 from ..do_not_touch.single_agent_env_wrapper import Env3
 
 #ticTacToe = TicTacToe()
+
 
 def sarsa_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     """
@@ -45,6 +49,7 @@ def sarsa_on_secret_env3() -> PolicyAndActionValueFunction:
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     env = Env3()
+    return sarsa_onPolicy(env, 0.1, 1.0, 0.9, 10000)
     # TODO
     pass
 
@@ -57,6 +62,7 @@ def q_learning_on_secret_env3() -> PolicyAndActionValueFunction:
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     env = Env3()
+    return q_learning(env, 0.1, 1.0, 0.9, 10000)
     # TODO
     pass
 
@@ -69,6 +75,7 @@ def expected_sarsa_on_secret_env3() -> PolicyAndActionValueFunction:
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     env = Env3()
+    return expected_sarsa(env, 0.1, 1.0, 0.9, 10000)
     # TODO
     pass
 

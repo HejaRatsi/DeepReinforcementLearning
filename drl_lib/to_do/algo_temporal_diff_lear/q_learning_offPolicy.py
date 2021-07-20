@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import numpy as np
 from tqdm import tqdm
 
-#from single_agent_env import SingleAgentEnv
+from drl_lib.to_do.world_monteCarlo_and_temporalDiff.contratSingleAgentEnv import SingleAgentEnv
 
 
 @dataclass
@@ -13,7 +13,7 @@ class PolicyAndActionValueFunction:
 
 
 def q_learning(
-        env,#: SingleAgentEnv,
+        env: SingleAgentEnv,
         alpha: float,
         epsilon: float,
         gamma: float,
@@ -116,7 +116,7 @@ def q_learning(
                 #Q(S,A) <- Q(S,A) + ...
                 q[s][chosen_action] += alpha * (r + gamma * np.max(list(q[s_p].values())) - q[s][chosen_action])
 
-    print("STOP")
+    #print("STOP")
     #pour chaque state
     for s in q.keys():
         # Accéder à un élement de la list q[s].keys()

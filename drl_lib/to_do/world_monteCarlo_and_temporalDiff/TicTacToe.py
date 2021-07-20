@@ -14,6 +14,7 @@ class TicTacToe(SingleAgentEnv):
         self.current_step = 0
         self.grid = np.arange(self.cell_count) #grid[0] = 1 si j'y suis, grid[0] = 2 si l'autre y est et grid[0] = 0 si personne
         self.reset()
+        #self.i = 0
 
     def check_winner(self, mark:int):
         return((self.grid[0]==mark and self.grid[1]== mark and self.grid[2]==mark )or #for row1
@@ -34,7 +35,7 @@ class TicTacToe(SingleAgentEnv):
 
     def act_with_action_id(self, action_id: int):
         assert (not self.game_over)
-        assert (action_id >= 0 or action_id <= 8)
+        assert (action_id >= 0 and action_id <= 8)
 
         if self.grid[action_id] == 0:
             # personne donc je peux placer
@@ -47,6 +48,10 @@ class TicTacToe(SingleAgentEnv):
             if(self.check_winner(1)):
                 self.game_over = True
                 self.current_score = 1
+        else:
+            #si il y a déjà quelqu'un, je ne fais rien
+            self.agent_pos = self.state_id()
+
 
 
         #JOUEUR ADEVERSE
@@ -60,6 +65,8 @@ class TicTacToe(SingleAgentEnv):
                 self.game_over = True
                 self.current_score = -1
 
+        #self.i +=1
+        #print("cout numéro "+str(self.i))
         self.current_step += 1
         if self.current_step >= self.max_steps:
             self.game_over = True
