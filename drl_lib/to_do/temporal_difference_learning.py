@@ -1,7 +1,7 @@
-from .algo_temporal_diff_lear.expected_sarsa import expected_sarsa
-from .algo_temporal_diff_lear.q_learning_offPolicy import q_learning
-from .algo_temporal_diff_lear.sarsa_onPolicy import sarsa_onPolicy
-from .world_monteCarlo_and_temporalDiff.TicTacToe import TicTacToe
+from .algo_temporal_diff_lear_PART1.expected_sarsa import expected_sarsa
+from .algo_temporal_diff_lear_PART1.q_learning_offPolicy import q_learning
+from .algo_temporal_diff_lear_PART1.sarsa_onPolicy import sarsa_onPolicy
+from .world_monteCarlo_and_temporalDiff_PART1.TicTacToe import TicTacToe
 from ..do_not_touch.result_structures import PolicyAndActionValueFunction
 from ..do_not_touch.single_agent_env_wrapper import Env3
 

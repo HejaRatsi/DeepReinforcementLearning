@@ -1,6 +1,6 @@
 import numpy as np
 
-from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
+from drl_lib.to_do.world_dynamic_prog_PART1.contratMDP import ContratMDP
 
 #DEFINITION DU GRID WORLD SOUS LA FORME D'UN MDP
 

@@ -1,5 +1,5 @@
 import numpy as np
-from drl_lib.to_do.world_monteCarlo_and_temporalDiff.contratSingleAgentEnv import SingleAgentEnv
+from drl_lib.to_do.world_monteCarlo_and_temporalDiff_PART1.contratSingleAgentEnv import SingleAgentEnv
 
 
 class TicTacToe(SingleAgentEnv):

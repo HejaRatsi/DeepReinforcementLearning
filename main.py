@@ -4,11 +4,11 @@ from tkinter import *
 import drl_lib.to_do.dynamic_programming as dynamic_programming
 import drl_lib.to_do.monte_carlo_methods as monte_carlo_methods
 import drl_lib.to_do.temporal_difference_learning as temporal_difference_learning
-from drl_lib.to_do.algo_monte_carlo.on_policy_first_visit_monte_carlo_control import \
+from drl_lib.to_do.algo_monte_carlo_PART1.on_policy_first_visit_monte_carlo_control import \
     on_policy_first_visit_monte_carlo_control
-from drl_lib.to_do.algo_temporal_diff_lear.expected_sarsa import expected_sarsa
-from drl_lib.to_do.algo_temporal_diff_lear.q_learning_offPolicy import q_learning
-from drl_lib.to_do.world_monteCarlo_and_temporalDiff.TicTacToe import TicTacToe
+from drl_lib.to_do.algo_temporal_diff_lear_PART1.expected_sarsa import expected_sarsa
+from drl_lib.to_do.algo_temporal_diff_lear_PART1.q_learning_offPolicy import q_learning
+from drl_lib.to_do.world_monteCarlo_and_temporalDiff_PART1.TicTacToe import TicTacToe
 
 
 

@@ -1,7 +1,7 @@
 import numpy as np
 import random
 
-from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
+from drl_lib.to_do.world_dynamic_prog_PART1.contratMDP import ContratMDP
 
 
 def policy_evalution(env: ContratMDP):

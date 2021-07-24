@@ -1,3 +1,6 @@
+from .algo_monte_carlo_PART1.monte_carlo_ES import monte_carlo_ES
+from .algo_monte_carlo_PART1.off_policy_monte_carlo_control import off_policy_monte_carlo_control
+from .algo_monte_carlo_PART1.on_policy_first_visit_monte_carlo_control import on_policy_first_visit_monte_carlo_control
 from ..do_not_touch.result_structures import PolicyAndActionValueFunction
 from ..do_not_touch.single_agent_env_wrapper import Env2
 
@@ -42,6 +45,7 @@ def monte_carlo_es_on_secret_env2() -> PolicyAndActionValueFunction:
     Returns the Optimal Policy (Pi(s,a)) and its Action-Value function (Q(s,a))
     """
     env = Env2()
+    return monte_carlo_ES(env, 0.1, 0.99999, 10000)
     # TODO
     pass
 
@@ -54,6 +58,7 @@ def on_policy_first_visit_monte_carlo_control_on_secret_env2() -> PolicyAndActio
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     env = Env2()
+    return on_policy_first_visit_monte_carlo_control(env, 0.1, 0.99999, 10000)
     # TODO
     pass
 
@@ -66,6 +71,7 @@ def off_policy_monte_carlo_control_on_secret_env2() -> PolicyAndActionValueFunct
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     env = Env2()
+    return off_policy_monte_carlo_control(env, 0.1, 0.99999, 10000)
     # TODO
     pass
 

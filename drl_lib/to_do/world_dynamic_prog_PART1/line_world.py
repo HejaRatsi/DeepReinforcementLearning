@@ -2,7 +2,7 @@ import numpy as np
 
 
 #DEFINITION DU LINE WORLD SOUS LA FORME D'UN MDP
-from drl_lib.to_do.world_dynamic_prog.contratMDP import ContratMDP
+from drl_lib.to_do.world_dynamic_prog_PART1.contratMDP import ContratMDP
 
 
 class LineWorld_DynamicProg(ContratMDP):
