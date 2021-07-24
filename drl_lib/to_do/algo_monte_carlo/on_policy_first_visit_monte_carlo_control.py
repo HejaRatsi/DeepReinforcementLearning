@@ -27,6 +27,7 @@ def on_policy_first_visit_monte_carlo_control(
         A = []
         R = []
         # Generate an episode following pi : S0, A0, R1,....,RT (in algo)
+        #print("START EPISODE")
         while not env.is_game_over():
             s = env.state_id()
             S.append(s)
@@ -52,6 +53,7 @@ def on_policy_first_visit_monte_carlo_control(
             r = env.score() - old_score
             R.append(r)
 
+        #print("END OF EPISODE")
         #G <- 0 (in algo)
         G = 0
 
