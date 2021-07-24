@@ -77,10 +77,22 @@ def off_policy_monte_carlo_control_on_secret_env2() -> PolicyAndActionValueFunct
 
 
 def demo():
+    print("Monte_carlo_es_on_tic_tac_toe_solo")
     print(monte_carlo_es_on_tic_tac_toe_solo())
+    print("\n")
+    print("On_policy_first_visit_monte_carlo_control_on_tic_tac_toe_solo")
     print(on_policy_first_visit_monte_carlo_control_on_tic_tac_toe_solo())
+    print("\n")
+    print("Off_policy_monte_carlo_control_on_tic_tac_toe_solo")
     print(off_policy_monte_carlo_control_on_tic_tac_toe_solo())
+    print("\n")
 
+    print("Monte_carlo_es_on_secret_env2")
+    print("\n")
     print(monte_carlo_es_on_secret_env2())
+    print("On_policy_first_visit_monte_carlo_control_on_secret_env2")
+    print("\n")
     print(on_policy_first_visit_monte_carlo_control_on_secret_env2())
+    print("off_policy_monte_carlo_control_on_secret_env2")
+    print("\n")
     print(off_policy_monte_carlo_control_on_secret_env2())
