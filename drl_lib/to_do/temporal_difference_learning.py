@@ -5,7 +5,9 @@ from .world_monteCarlo_and_temporalDiff_PART1.TicTacToe import TicTacToe
 from ..do_not_touch.result_structures import PolicyAndActionValueFunction
 from ..do_not_touch.single_agent_env_wrapper import Env3
 
-#ticTacToe = TicTacToe()
+
+#max_steps: int, firstCase: int
+ticTacToe = TicTacToe(60,2)
 
 
 def sarsa_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
@@ -16,6 +18,8 @@ def sarsa_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     # TODO
+    return sarsa_onPolicy(ticTacToe, 0.1, 1.0, 0.9, 10000)
+
     pass
 
 
@@ -27,6 +31,8 @@ def q_learning_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     # TODO
+    return q_learning(ticTacToe, 0.1, 1.0, 0.9, 10000)
+
     pass
 
 
@@ -38,6 +44,8 @@ def expected_sarsa_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     # TODO
+    return expected_sarsa(ticTacToe, 0.1, 1.0, 0.9, 10000)
+
     pass
 
 

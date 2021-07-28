@@ -107,8 +107,6 @@ def policy_evaluation_on_secret_env1() -> ValueFunction:
 
     # TODO
 
-
-
     return policy_evalution(secretEnv)
 
     pass

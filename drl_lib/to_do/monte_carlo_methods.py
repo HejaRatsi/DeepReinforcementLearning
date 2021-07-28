@@ -1,9 +1,13 @@
 from .algo_monte_carlo_PART1.monte_carlo_ES import monte_carlo_ES
 from .algo_monte_carlo_PART1.off_policy_monte_carlo_control import off_policy_monte_carlo_control
 from .algo_monte_carlo_PART1.on_policy_first_visit_monte_carlo_control import on_policy_first_visit_monte_carlo_control
+from .world_monteCarlo_and_temporalDiff_PART1.TicTacToe import TicTacToe
 from ..do_not_touch.result_structures import PolicyAndActionValueFunction
 from ..do_not_touch.single_agent_env_wrapper import Env2
 
+
+#max_steps: int, firstCase: int
+ticTacToe = TicTacToe(60,2)
 
 def monte_carlo_es_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     """
@@ -12,6 +16,8 @@ def monte_carlo_es_on_tic_tac_toe_solo() -> PolicyAndActionValueFunction:
     Returns the Optimal Policy (Pi(s,a)) and its Action-Value function (Q(s,a))
     """
     # TODO
+    return monte_carlo_ES(ticTacToe, 0.1, 0.99999, 10000)
+
     pass
 
 
@@ -24,6 +30,8 @@ def on_policy_first_visit_monte_carlo_control_on_tic_tac_toe_solo() -> PolicyAnd
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     # TODO
+    return on_policy_first_visit_monte_carlo_control(ticTacToe, 0.1, 0.99999, 10000)
+
     pass
 
 
@@ -35,6 +43,8 @@ def off_policy_monte_carlo_control_on_tic_tac_toe_solo() -> PolicyAndActionValue
     Experiment with different values of hyper parameters and choose the most appropriate combination
     """
     # TODO
+    return off_policy_monte_carlo_control(ticTacToe, 0.1, 0.99999, 10000)
+
     pass
 
 
